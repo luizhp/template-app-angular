@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - 12
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run test:coveralls
