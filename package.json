@@ -45,6 +45,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prebuild": "rimraf dist",
     "build": "ng build --prod --base-href ./",
     "commitizen": "exec < /dev/tty && git cz --hook || true",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
