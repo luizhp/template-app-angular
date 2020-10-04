@@ -52,6 +52,8 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:ci": "npm test -- --coverage --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/template-app-angular/lcov.info",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
