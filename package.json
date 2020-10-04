@@ -46,6 +46,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --base-href ./",
+    "commitizen": "exec < /dev/tty && git cz --hook || true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
