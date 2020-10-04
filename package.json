@@ -55,7 +55,11 @@
     "test:ci": "npm test -- --coverage --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
     "test:coveralls": "npm run test:ci && coveralls < coverage/template-app-angular/lcov.info",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "cypress:e2e": "cypress open",
+    "cypress:install": "cypress install -f",
+    "cypress:run": "cypress run --record",
+    "cypress:chrome": "cypress run -b chrome",
+    "cypress:open": "concurrently \"ng serve\" \"cypress open\""
   },
   "private": true,
   "dependencies": {
