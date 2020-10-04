@@ -157,5 +157,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "standard-version": {
+    "changelogHeader": "# Template Angular TDD App\n\nAll notable changes to this project will be documented here.\n\n"
   }
 }
