@@ -1,0 +1,7 @@
+package-lock.json
+yarn.lock
+dist
+coverage
+node_modules
+.travis.yml
+CHANGELOG.md
