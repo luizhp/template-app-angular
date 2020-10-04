@@ -1,7 +1,8 @@
 {
   "lint-staged": {
     "src/**/*.ts": [
-      "ng-lint-staged lint --fix --"
+      "ng-lint-staged lint --fix --",
+      "npm run test:staged"
     ]
   }
 }
