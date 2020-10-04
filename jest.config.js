@@ -11,4 +11,6 @@ module.exports = {
     '<rootDir>/cypress/',
     '<rootDir>/src/test.ts',
   ],
+  collectCoverage: true,
+  coverageDirectory: 'coverage/template-app-angular',
 };
