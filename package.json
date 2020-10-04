@@ -89,6 +89,7 @@
     "start": "ng serve",
     "prebuild": "rimraf dist",
     "build": "ng build --prod --base-href ./",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version",
     "check": "npm-check -s -u",
     "commitizen": "exec < /dev/tty && git cz --hook || true",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
