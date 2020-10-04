@@ -57,7 +57,7 @@
     "test:ci": "npm test -- --coverage --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
     "test:coveralls": "npm run test:ci && coveralls < coverage/template-app-angular/lcov.info",
     "lint": "ng lint",
-    "cypress:e2e": "npm run cypress:ci",
+    "cypress:e2e": "env-cmd npm run cypress:ci",
     "cypress:install": "cypress install -f",
     "cypress:run": "cypress run --record",
     "cypress:chrome": "cypress run -b chrome",
