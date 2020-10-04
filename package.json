@@ -55,12 +55,13 @@
     "test:ci": "npm test -- --coverage --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
     "test:coveralls": "npm run test:ci && coveralls < coverage/template-app-angular/lcov.info",
     "lint": "ng lint",
-    "cypress:e2e": "cypress open",
+    "cypress:e2e": "npm run cypress:ci",
     "cypress:install": "cypress install -f",
     "cypress:run": "cypress run --record",
     "cypress:chrome": "cypress run -b chrome",
     "cypress:open": "concurrently \"ng serve\" \"cypress open\"",
-    "start:ci": "http-server ./dist/template-app-angular -a localhost -p 4200 -c-1"
+    "start:ci": "http-server ./dist/template-app-angular -a localhost -p 4200 -c-1",
+    "cypress:ci": "ng build --prod && run-p --race start:ci cypress:run"
   },
   "private": true,
   "dependencies": {
