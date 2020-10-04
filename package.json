@@ -47,7 +47,9 @@
     "start": "ng serve",
     "build": "ng build --prod --base-href ./",
     "commitizen": "exec < /dev/tty && git cz --hook || true",
-    "test": "ng test",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:staged": "npm test -- --findRelatedTests",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
