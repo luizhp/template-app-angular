@@ -84,7 +84,7 @@
     "@angular/cli": "~10.1.4",
     "@angular/compiler-cli": "~10.1.4",
     "@types/jest": "^26.0.14",
-    "@types/node": "^12.11.1",
+    "@types/node": "^14.11.2",
     "codelyzer": "^6.0.0",
     "commitizen": "^4.2.1",
     "concurrently": "^5.3.0",
