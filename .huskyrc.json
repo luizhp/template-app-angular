@@ -2,6 +2,6 @@
   "hooks": {
     "prepare-commit-msg": "echo '👉 Control-C 👈 abort commitizen and continue with your commit message' && npm run commitizen || true",
     "pre-commit": "pretty-quick --check --staged && ng-lint-staged",
-    "pre-push": "npm run build"
+    "pre-push": "npm run test:ci && npm run build"
   }
 }
