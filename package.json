@@ -59,7 +59,8 @@
     "cypress:install": "cypress install -f",
     "cypress:run": "cypress run --record",
     "cypress:chrome": "cypress run -b chrome",
-    "cypress:open": "concurrently \"ng serve\" \"cypress open\""
+    "cypress:open": "concurrently \"ng serve\" \"cypress open\"",
+    "start:ci": "http-server ./dist/template-app-angular -a localhost -p 4200 -c-1"
   },
   "private": true,
   "dependencies": {
