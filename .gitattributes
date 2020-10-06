@@ -4,3 +4,7 @@
 # JS and TS files must always use LF for tools to work
 *.js eol=lf
 *.ts eol=lf
+*.json eol=lf
+*.html eol=lf
+*.css eol=lf
+*.scss eol=lf

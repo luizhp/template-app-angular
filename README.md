@@ -34,12 +34,14 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
 > ### 1. Create new Angular project
 
 ```bash
-   $ ng n template-app-angular --routing=false --style=css --skip-git --verbose=true --prefix=template-app-angular && cd ./template-app-angular
+   $ ng n template-app-angular --routing=false --style=css --skip-git --verbose=true --prefix=template-app-angular
 ```
 
 > ### 2. Disable sharing of anonymous usage
 
 ```bash
+   $ cd ./template-app-angular
+
    $ ng analytics project off | echo N
 ```
 
@@ -49,11 +51,45 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
    $ rm ./README.md
 ```
 
-> ### 4. Add new entries to .gitignore
+> ### 4. Setup Visual Studio Code IDE settings
+
+- create [.vscode/settings.json] file and add:
+
+  ```json
+  {
+    "files.eol": "\n",
+    "explorer.compactFolders": false,
+    "editor.tabSize": 2,
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+    "html.format.endWithNewline": true,
+    "html.suggest.html5": true,
+    "html.autoClosingTags": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "javascript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true
+  }
+  ```
+
+> ### 5. Add new entries to .gitignore
 
 - copy [.gitignore] file
 
-> ### 5. Create .gitattributes file
+> ### 6. Create .gitattributes file
 
 - create [.gitattributes] file and add:
 
@@ -64,9 +100,13 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   # JS and TS files must always use LF for tools to work
   *.js eol=lf
   *.ts eol=lf
+  *.json eol=lf
+  *.html eol=lf
+  *.css eol=lf
+  *.scss eol=lf
   ```
 
-> ### 6. Create .npmrc file
+> ### 7. Create .npmrc file
 
 - create [.npmrc] file and add:
 
@@ -74,29 +114,31 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   registry = "https://registry.npmjs.org/"
   ```
 
-> ### 7. Initialize GIT Local Repo
+> ### 8. Initialize GIT Local Repo
 
 ```bash
    $ git init
 ```
 
-> ### 8. Add GIT Local Repo settings
+> ### 9. Add GIT Local Repo settings
 
 ```bash
+   $ git config core.eol lf
+   $ git config core.autocrlf input
    $ git config commit.status false
    $ git config push.followTags true
    $ git config alias.s '!git status -s'
    $ git config alias.c '!git add --all && git commit -m'
-   $ git config alias.l "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(green)[%cd...%cr]%Creset %C(bold blue)<%an> %n%C(bold)%s%n' --abbrev-commit --date=iso-local"
-   $ git config alias.lnp '!git --no-pager log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %C(green)[%cd...%cr]%Creset %C(bold blue)<%an> %n%C(bold)%s%n%Creset" --abbrev-commit --date=iso-local'
+   $ git config alias.l "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(green)[%cd...%cr]%Creset %C(bold blue)<%an> %n%C(bold)%s%n%Creset' --abbrev-commit --date=iso-local"
+   $ git config alias.lnp '!git --no-pager l'
    $ git config alias.t "!sh -c 'git tag -a $1 -m $1' -"
 ```
 
-> ### 9. Add GPL v3 license
+> ### 10. Add GPL v3 license
 
 - copy [license] file
 
-> ### 10. Update project details on package.json
+> ### 11. Update project details on package.json
 
 - on [package.json] file, update:
 
@@ -144,13 +186,13 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   }
   ```
 
-> ### 11. Initial commit
+> ### 12. Initial commit
 
 ```bash
    $ git c "chore: initial commit"
 ```
 
-> ### 12. Install tslint-angular package
+> ### 13. Install tslint-angular package
 
 - [tslint-angular@npm]
 
@@ -160,7 +202,7 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   $ git c "chore(tslint-angular): install package"
   ```
 
-> ### 13. Setup tslint-angular on tslint.json file
+> ### 14. Setup tslint-angular on tslint.json file
 
 - update [tslint.json] file with:
 
@@ -174,7 +216,7 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
    $ git c "chore(tslint-angular): setup tslint.json file"
 ```
 
-> ### 14. Install prettier package
+> ### 15. Install prettier package
 
 - [prettier@npm]
 
@@ -184,7 +226,7 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   $ git c "chore(prettier): install package"
   ```
 
-> ### 15. Setup prettier custom options
+> ### 16. Setup prettier custom options
 
 - create [.prettierrc] file and add:
 
@@ -222,7 +264,7 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
    $ git c "chore(prettier): setup custom options"
 ```
 
-> ### 16. Install tslint-config-prettier package
+> ### 17. Install tslint-config-prettier package
 
 - [tslint-config-prettier@npm]
 
@@ -232,7 +274,7 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
   $ git c "chore(tslint-config-prettier): install package"
   ```
 
-> ### 17. Setup tslint-config-prettier on tslint.json file
+> ### 18. Setup tslint-config-prettier on tslint.json file
 
 - update [tslint.json] file with:
 
@@ -244,43 +286,6 @@ Steps to create an Angular + git-commit-msg-linter + ng-lint-staged + Husky + Je
 
 ```bash
    $ git c "chore(tslint-config-prettier): setup tslint.json file"
-```
-
-> ### 18. Setup Visual Studio Code IDE settings
-
-- create [.vscode/settings.json] file and add:
-
-  ```json
-  {
-    "explorer.compactFolders": false,
-    "editor.tabSize": 2,
-    "typescript.updateImportsOnFileMove.enabled": "prompt",
-    "html.format.endWithNewline": true,
-    "html.suggest.html5": true,
-    "html.autoClosingTags": true,
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "javascript.referencesCodeLens.showOnAllFunctions": true,
-    "javascript.referencesCodeLens.enabled": true,
-    "typescript.implementationsCodeLens.enabled": true,
-    "typescript.referencesCodeLens.enabled": true,
-    "typescript.referencesCodeLens.showOnAllFunctions": true
-  }
-  ```
-
-```bash
-   $ git c "chore(vscode): set default IDE settings"
 ```
 
 > ### 19. Setup Visual Studio Code IDE jest snippet
